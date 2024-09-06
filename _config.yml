@@ -1,5 +1,5 @@
-title: Hacker theme
-description: Hacker is a theme for GitHub Pages.
-show_downloads: true
+title: Network Sniffing
+description: An exploration of Wireshark and Analysis of Various Packets and Their Protocols
+show_downloads: false
 google_analytics:
 theme: jekyll-theme-hacker
