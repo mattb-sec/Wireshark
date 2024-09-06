@@ -59,7 +59,29 @@ This figure is showing many TCP packets being sent and received between DESKTOP-
 
 Next, the second half of the capture is shown below:
 
+- <i>Figure 5</i>: The next part of the connection process. A three-way handshake can be seen between my computer and the Steam Cloud server. Moreover, a connection to another Akamai service is established.
 
+<p align="center">
+  <img width="1437" height="327" src="assets/fig5.png">
+</p>
+
+This section shows a connection being established with steamcloud-us-west1.storage. googleapis.com. This is me connecting to the Steam Cloud server in which my games and content are stored not only on my computer, but also in one of Valve’s servers in my region. The next connection is to a1768.gi.akamai.net. Judging by the information panel, and my own knowledge of the program, I suspect that this is handling the social components of Steam. That is, messaging, screenshots, community sharing, and so on. Since this information only repeats after this point, I decide that this is all I will gather from this step and move on.
+
+## Running a One-Hour Capture and Collecting Packets with Various Protocols
+
+This intensive step of the lab consists of restarting my network connection and running a Wireshark capture for one hour while performing various tasks on my computer in order to capture the protocols that are required in the directions. Actions I took to achieve this included visiting YouTube (opening a video and joining a stream), logging into Discord (a messaging site) and Blackboard, accessing Google, visiting Quora and Wikipedia, and opening SimSpace and accessing a Kali Linux terminal. In addition to all this, I also logged back into Steam and even ran one of my games and joined a server. I wanted to perform as many actions as I could so that I could see the variety of ways Wireshark reflects network activity. The figures below show the network connection statistics and network packet summary. The subsections thereafter discuss each protocol in the order given in the directions.
+
+- <i>Figure 6</i>: The capture file properties of my one hour scan. Notice that the time elapsed is approximately one hour and the total number of bytes captured and displayed is shown in the bottom third of the figure. Compared to number of bytes my firewall states, the results are accurate.
+
+<p align="center">
+  <img width="629" height="625" src="assets/fig6.png">
+</p>
+
+- <i>Figure 7</i>: The statistics of the packets captured. This displays all the different packet protocols that were captured. Notice how a vast majority of it is TCP and that all of these packets come entirely from Ethernet.
+
+<p align="center">
+  <img width="698" height="479" src="assets/fig7.png">
+</p>
 
 
 
