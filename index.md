@@ -13,6 +13,56 @@ Before I begin to capture network activity, it is important to first understand 
 
 In 2020, however, my family and I had noticed that our wired connections have been exceedingly bad for quite some time. The support technicians at AT&T had insisted that we had the fastest internet plan available, but only a few simple internet speed tests proved this to be a lie. Although our phone service was excellent, our internet connections were not. We eventually got fed up and opted to switch to Spectrum. However, my parents still wanted to keep AT&T for our phone service. The result was having a Spectrum modem and router crudely installed alongside the AT&T U-verse router and WAP. The Spectrum technicians stated that they could not do any more to modify the network due to the way AT&T had initially set it up. It works well, but the tradeoff was that all the ethernet ports in my house are now totally useless (and we have one of the ugliest network boxes you have ever seen). This was mostly fine since nothing except my computer really used ethernet anymore. Of course, I still wanted a wired connection and thankfully the network box is in my closet. My solution was to plug an ethernet cable into my desktop computer, run it across my room, and plug the other end into the Spectrum router. The router is then connected to the modem which is connected to the internet. The figure below shows an illustration of this:
 
+- <i>Figure 1</i>: An illustration of my computer’s network. My computer is joined to the router via ethernet cable. The router is connected to the modem which then connects to the internet.
+
+<p align="center">
+  <img width="742" height="174" src="assets/fig1.png">
+</p>
+
+One final detail of my network setup is that my computer is not able to connect to Wi-Fi. Therefore, its only available connection is through ethernet. This information about my network is pertinent because it explains the selection of connections Wireshark displays.
+
+## Beginning to Use Wireshark and Capturing the Network Activity from Accessing a Single Website
+
+Upon opening Wireshark, I am greeted by a home page and a list of connections to monitor.
+
+- <i>Figure 2</i>: The connection selection area. There are three unused local area connections, an adapter for loopback traffic capture, and two ethernet connections labeled “Ethernet 5” and “Ethernet” respectively. Notice the lack of activity for the “Ethernet” connection.
+
+<p align="center">
+  <img width="494" height="190" src="assets/fig2.png">
+</p>
+
+When I was first performing this step, I selected the connection labeled only “Ethernet.” However, I quickly discovered that there was absolutely no activity going on within it. No packets whatsoever were being sent or received. It was then I noticed a second ethernet connection labeled “Ethernet 5.” I suspect that the “Ethernet” connection is referring to the ethernet port AT&T put in my wall (which is now defunct), and the “Ethernet 5” connection is the setup I have right now with the Spectrum hardware. Therefore, this lab will be focusing on the “Ethernet 5” connection because it is what connects my computer to the internet.
+
+With this connection selected, I close out any browser windows and potential internet-based services I have and hit the “start capturing” button. After doing so, I open Firefox and access YouTube. I kept the process running for about two minutes and then hit “stop.” The figure below is a snippet of the capture:
+
+- <i>Figure 3</i>: A snippet of my first capture. Shown here are TCP connections that appear when connecting to the website and staying there. There is also a message being sent with ICMPv6 along with Multicast Domain Name System (MDNS) packets, however these are insignificant because they pertain to my phone.
+
+<p align="center">
+  <img width="1559" height="256" src="assets/fig3.png">
+</p>
+
+I found it astonishing that even for such a short amount of time, there was a large amount of information Wireshark had captured. Among these are packets from Firefox and Google. There is also a large amount of TCP packets that are used to establish and maintain a connection with the destination. I also found it striking that, despite my computer using a wired connection, packets from my cell phone have also been captured. My only guess is that information on YouTube is being synced between my computer and phone. I find these observations to be significant because it shows the user how there is a lot more information being sent out and received than he or she may think.
+
+## Using Wireshark to Capture Activity While Accessing a Remote Service
+
+The next section of the lab consists of analyzing network activity when accessing a remote service. Cisco subsidiary AppDynamics defines a remote service as “a process that resides outside of the application server and provides a service to the application.” Examples of a remote service includes web services, message queues, and caching servers. Furthermore, a web service is a medium that propagates communication between client and server applications on the World Wide Web. It is a software module that is designed to perform a specific set of tasks (Guru99). With these definitions in mind, the remote service I chose to use was Steam which is a digital gaming distribution service owned by the gaming company Valve. The structure of Steam is based almost entirely around communications between client computers and central Steam servers. Moreover, content delivery is performed by transferring games and other files through large software libraries known as game cache files or GCFs (Wikipedia). This, in addition to the Steam Cloud service, is why I believe Steam to be a suitable means for demonstration in this lab.
+
+After clearing Wireshark, I restart the capturing process and log on to my Steam profile. Interestingly, this took three attempts because the connection was lost each time. This may have been due to the amount of usage coming from Wireshark. The figure below shows the first half of the information captured in the process:
+
+- <i>Figure 4</i>: TCP (and TLS) packets that are captured when logging on to Steam. These demonstrate the connection that is being established between my computer and Steam (which is, more specifically, the nearest Akamai Ghost server for Steam).
+
+<p align="center">
+  <img width="1435" height="364" src="assets/fig4.png">
+</p>
+
+This figure is showing many TCP packets being sent and received between DESKTOP-ICP9TA1, which is the name of my computer, and cdn.akamai.steamstatic.com. Although the Steam developers do not disclose the specifics of their software, I have gathered that Steam uses a service known as Akamai Ghost (otherwise known as Akamai G-Host or Akamai Global Host). Akamai’s official website explains that this service mirrors content from a central server to a server that is closer to a given client. This, in turn, makes content delivery more efficient. Therefore, I can conclude that the Akamai packets are what Steam is using to communicate with me.
+
+Next, the second half of the capture is shown below:
+
+
+
+
+
 ### Header 3
 
 ```js
