@@ -83,6 +83,68 @@ This intensive step of the lab consists of restarting my network connection and 
   <img width="698" height="479" src="assets/fig7.png">
 </p>
 
+### ARP
+
+As previously mentioned, ARP protocols take the name of a machine and translate it so that it is usable in a network. That is, an IP address is mapped to the machine’s MAC address. It does so by asking the entire network for a desired IP address and waiting for an answer from the intended node. Note that the request is ignored by every destination on the network except for the intended recipient (Study-CCNA). The figure below shows the ARP interactions with the devices in my network.
+
+- <i>Figure 8</i>: A snippet of my one-hour capture with the ARP filter in place. Here we can see the MAC addresses of the devices on my network along with their resolving IP addresses. This fragment covers the scope of this capture because this information repeats after the cutoff.
+
+<p align="center">
+  <img width="934" height="334" src="assets/fig8.png">
+</p>
+
+This next figure shows a more organized list of all the MAC addresses that appear in the capture file along with a few statistics regarding the communications between devices.
+
+- <i>Figure 9</i>: A list of the MAC addresses that appear in the capture file. The highlighted entries denote my computer’s MAC address. The side panels show the number of packets that were transferred between addresses during their communications.
+
+<p align="center">
+  <img width="941" height="286" src="assets/fig9.png">
+</p>
+
+### TCP
+
+Once again, the TCP defines the way information is exchanged between senders and receivers. I noticed throughout my captures that packets with TCP are by far the most abundant. From my understanding, this is to be expected because this is what establishes and maintains connections between the client and the server. The figures below show two instances TCP is used to transfer information.
+
+- <i>Figure 10</i>: A snippet of TCP interaction while watching a video on Tumblr and simultaneously streaming music on YouTube.
+
+<p align="center">
+  <img width="1249" height="297" src="assets/fig10.png">
+</p>
+
+- <i>Figure 11</i>: Another snippet of TCP interaction, this time accessing my Gmail account. Notice how the service is using the Internet Message Access Protocol, or IMAP, to show me my emails.
+
+<p align="center">
+  <img width="1248" height="309" src="assets/fig11.png">
+</p>
+
+### UDP
+
+The User Datagram Protocol, or UDP, is a communication protocol that is very similar to TCP. The only difference is that UDP communications do not formally establish a connection before transferring data (Cloudflare). As a result, this means UDP does not have any error checking and data can therefore be transferred at a much faster speed than TCP. The tradeoff, however, is that UDP packets can potentially be lost in transit and create vulnerabilities for DDoS attacks. I found a particularly interesting example for this protocol. The following figure shows the network activity as I ran my game and joined one of Valve’s dedicated servers.
+
+- <i>Figure 12</i>: A capture from Wireshark showing me connecting to one of Valve’s dedicated servers on my game. The IP addresses are between my computer and Valve’s server.
+
+<p align="center">
+  <img width="1248" height="509" src="assets/fig12.png">
+</p>
+
+To illustrate even further, similar data is reflected in the game’s own developer console.
+
+- <i>Figure 13</i>: A few entries from my game’s developer console after connecting to the server. Notice the similarities in the IP addresses.
+
+<p align="center">
+  <img width="1018" height="135" src="assets/fig13.png">
+</p>
+
+### HTTP
+
+The Hypertext Transfer Protocol, or HTTP, allows the fetching of resources such as HTML files, images, videos, and advertisements (Mozilla). Its main function is to take data and translate it such that humans are able to interpret it. The figure below shows the transferring of HTTP packets in order to load the main page of my Steam profile.
+
+- <i>Figure 14</i>: The HTTP interactions that were captured while my profile page was loading. Once again, I must connect to the Akamai servers. Notice how HTTP is being used to access both a large and medium version of my profile picture from one of Steam’s media directories.
+
+<p align="center">
+  <img width="1018" height="135" src="assets/fig14.png">
+</p>
+
 
 
 ### Header 3
