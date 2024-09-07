@@ -218,3 +218,36 @@ I found this lab to be extremely insightful and educational. Not only did it rea
 # Appendix
 
 The following link leads to the website I used to access the test FTP site: <a href="https://dlptest.com/ftp-test/" target="_blank">FTP Test</a><br>
+
+# References
+
+- <a href="https://www.akamai.com/us/en/resources/cloud-hosting.jsp" target="_blank">"Cloud Hosting." Akamai. Accessed May 2, 2021.</a>
+
+- <a href="https://www.wireshark.org/#learnWS" target="_blank">"Download." Wireshark · Go Deep. Accessed May 03, 2021.</a>
+
+- <a href="https://www.whoishostingthis.com/resources/ftp/" target="_blank">"File Transfer Protocol (FTP): Why This Old Protocol Still Matters." WhoIsHostingThis.com. January 24, 2020. Accessed May 03, 2021.</a>
+
+- <a href="https://www.comptia.org/content/guides/what-is-a-network-protocol" target="_blank">"Network Protocol Definition: Computer Protocol: Computer Networks: CompTIA." Default. Accessed May 03, 2021.</a>
+
+- <a href="https://docs.appdynamics.com/display/PRO21/Remote+Services" target="_blank">"Remote Services - AppDynamics Documentation 21.x." AppDynamics Documentation. Accessed May 03, 2021.</a>
+
+- <a href="https://en.wikipedia.org/wiki/Steam_(service)#Software_delivery_and_maintenance" target="_blank">"Steam (service)." Wikipedia. April 29, 2021. Accessed May 03, 2021.</a>
+
+- <a href="https://www.ibm.com/docs/en/aix/7.1?topic=protocol-tcpip-protocols" target="_blank">TCP/IP Protocols. Accessed May 03, 2021.</a>
+
+- <a href="https://www.techopedia.com/definition/17478/address-resolution" target="_blank">"What Is Address Resolution? - Definition from Techopedia." Techopedia.com. December 21, 2016. Accessed May 03, 2021.</a>
+
+- <a href="https://study-ccna.com/arp/" target="_blank">"ARP (Address Resolution Protocol) Explained." Upravnik. January 19, 2019. Accessed May 03, 2021.</a>
+
+- <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" target="_blank">"Web Technology for Developers." HTTP | MDN. Accessed May 03, 2021.</a>
+
+- <a href="https://www.guru99.com/web-service-architecture.html" target="_blank">"What Are Web Services? Architecture, Types, Example." Guru99. Accessed May 03, 2021.</a>
+
+- <a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank">"What Is DNS?" Cloudflare. Accessed May 2, 2021.</a>
+
+- <a href="https://www.cloudflare.com/learning/ddos/glossary/internet-control-message-protocol-icmp/" target="_blank">"What Is the Internet Control Message Protocol (ICMP)?" Cloudflare. Accessed May 2, 2021.</a>
+
+- <a href="https://www.cloudflare.com/learning/ddos/glossary/user-datagram-protocol-udp/" target="_blank">"What Is User Datagram Protocol (UDP/IP)?" Cloudflare. Accessed May 2, 2021.</a>
+
+- <a href="https://www.quora.com/What-technologies-does-Valve-use-to-power-Steam-especially-under-load-annual-Summer-Sale-etc?share=1" target="_blank">"What Technologies Does Valve Use to Power Steam, Especially under Load (annual Summer Sale, Etc.)?" Quora. Accessed May 03, 2021.</a>
+
