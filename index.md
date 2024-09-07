@@ -203,106 +203,18 @@ With all the data that was collected from only one hour of activity, I had to wo
   <img width="1250" height="689" src="assets/fig20.png">
 </p>
 
+In truth, the only noticeable difference between this capture and the previous one-hour one is that everything took longer to load while I was analyzing the data. Other than that, the same information was captured only in much larger quantities with more repetition.
 
+Finally, to experiment one last time, I attempted to try and capture my network’s activity using loopback mode. Referring to figure 2, Wireshark also had a network adapter available for loopback traffic capture. I selected this connection and waited while it gathered data. The difference for this method was that Wireshark was capturing only TCP packets. After some searching, I found that nothing else was captured. After being satisfied with my results, the lab is concluded.
 
-### Header 3
+## Analysis of Wireshark and Its Potential for Security Operations
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+Out of all the programs I have used throughout my career as a cyber security student, Wireshark never fails to impress me. The ability to capture network activity in real time is no doubt a huge asset in the world of cyber security. As mentioned, Wireshark is an excellent tool for detecting DoS attacks since packet flooding can immediately be detected by anyone monitoring the network. Moreover, I can imagine Wireshark being extremely helpful for intruder detection. All one must do is look and see if there are any unauthorized IP addresses in the network. This could be done by monitoring ARP traffic and pinging the network on a regular basis. Finally, as hinted in the FTP subsection, Wireshark is a useful tool for finding vulnerabilities in security. For instance, the entire TCP stream of an FTP interaction can be collected from Wireshark. This practically gives an attacker a transcript of everything that went on during the interaction. Due to this, security practitioners know that FTP can lead to potential dangers and that they should be cautious when deciding the best means of communication. For these reasons, I believe that Wireshark is an indispensable tool for any security practitioner.
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+# Conclusion
 
-#### Header 4
+I found this lab to be extremely insightful and educational. Not only did it reacquaint me with Wireshark and some common protocols, but it also made me look at and learn about my own network. Moreover, it also had me critically examine the interactions I have with the internet that I find for the most part to be quite common. The information I gained here is practical and I am very likely to put it to use again in the near future.
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+# Appendix
 
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+The following link leads to the website I used to access the test FTP site: <a href="https://dlptest.com/ftp-test/" target="_blank">FTP Test</a><br>
