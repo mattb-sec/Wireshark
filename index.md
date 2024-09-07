@@ -142,7 +142,65 @@ The Hypertext Transfer Protocol, or HTTP, allows the fetching of resources such 
 - <i>Figure 14</i>: The HTTP interactions that were captured while my profile page was loading. Once again, I must connect to the Akamai servers. Notice how HTTP is being used to access both a large and medium version of my profile picture from one of Steam’s media directories.
 
 <p align="center">
-  <img width="1018" height="135" src="assets/fig14.png">
+  <img width="1249" height="296" src="assets/fig14.png">
+</p>
+
+### HTTPS (TLS)
+
+Hypertext Transfer Protocol Secure, or HTTPS, is similar to HTTP except that it uses Transport Layer Security or TLS as a sublayer. (Comodo SSL Store). TLS, in turn, is an improved form of Secure Sockets Layer or SSL which is the cryptographic security protocol that protects information as it is transferred. There is no Wireshark filter for HTTPS, but I did capture packets with the SSL, TLSv1.2, and TLSv1.3 protocols. The suffixes after the “TLS” denote version numbers.
+
+- <i>Figure 15</i>: A snippet of TLS activity. True to its name, these packets seem to deal with security. The source and destination names of secure-sounding names like safebrowsing.google and Kaspersky, my antivirus. Instances of SSL, TLSv1.2, and TLSv1.3 can be seen here.
+
+<p align="center">
+  <img width="1246" height="413" src="assets/fig15.png">
+</p>
+
+### FTP
+
+The File Transfer Protocol, or FTP, is a rather dated form of communication. It is perhaps the simplest protocol here and only allows the transfer of data between two computers on an internet connection (WhoIsHostingThis). While still all right for sharing large, harmless, and publicly accessible files, FTP does not seem like a suitable protocol for security. This is because it stores all of the data it is transferring in plain text. This means that if someone were to intercept this interaction, they would have instant access to a username and password.
+
+There was an interesting process behind capturing FTP packets. I used a website called DLP Test, which hosts an FTP site for testing, to create a new network location for my computer. From there, I used the given credentials and was granted access to the FTP site. The figures below show the packet activity while this was happening and, to illustrate my point about security, the followed TCP stream from the interaction.
+
+- <i>Figure 16</i>: The capture of TCP and FTP interaction while I was connecting to DLP Test’s test FTP site. A three-way handshake between my computer and the site can be seen at the top.
+
+<p align="center">
+  <img width="1247" height="302" src="assets/fig16.png">
+</p>
+
+- <i>Figure 17</i>: The resulting output after selecting “follow TCP stream in Wireshark.” My username, password, and interactions with the site are on full display and easily readable. Therefore, I have some concerns about FTP regarding security.
+
+<p align="center">
+  <img width="1259" height="498" src="assets/fig17.png">
+</p>
+
+### ICMP
+
+The Internet Control Message Protocol, or ICMP, is used by network devices to diagnose communication issues (Cloudflare). Unlike TCP or UDP, ICMP does not rely on connections. Another feature to ICMP is its traceroute ability. This is where ICMP packets hop from router to router until a destination is reached. A simpler, and more well-known version, of this is pinging. Pinging is useful for testing connections and gauging latency. However, it is also the main weapon behind ICMP flood attacks and ping of death attacks. The figure below shows some ICMP errors that were captured while connecting to my game’s server along with a few pings.
+
+- <i>Figure 18</i>: The ICMP interactions. The black and green entries are error messages that are warning that the destination ports are unreachable. The pink entries are pings between my computer and Google.
+
+<p align="center">
+  <img width="1246" height="234" src="assets/fig18.png">
+</p>
+
+### DNS
+
+The final protocol observed in this lab is the Domain Name System or DNS. This protocol is the reason why humans need only to remember “youtube.com” or “google.com” to find these websites and not their full IP addresses. DNS translates these domain names into IP addresses that are communicable through a network (Cloudflare). The figure below shows a snippet of these captures.
+
+- <i>Figure 19</i>: A snippet of DNS captures. You can see common names like Google and Kaspersky, and some undesired ones like Facebook and salesforceliveagent.
+
+<p align="center">
+  <img width="1372" height="298" src="assets/fig19.png">
+</p>
+
+## Running an Even Longer Capture and Attempting Loopback Mode
+
+With all the data that was collected from only one hour of activity, I had to wonder what would be collected if I left Wireshark running for even longer. The directions said to leave it running for at least four hours, but I left mine running for about nine hours and thirty-seven minutes. The figure below shows the capture file properties of this capture.
+
+- <i>Figure 20</i>: The capture file properties pane of the long capture. The time elapsed comes out to nine hours thirty-seven minutes and thirty-seven seconds. Also notice the immense amount of data that was captured.
+
+<p align="center">
+  <img width="1250" height="689" src="assets/fig20.png">
 </p>
 
 
